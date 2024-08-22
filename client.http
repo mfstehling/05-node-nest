@@ -1,6 +1,7 @@
 @baseUrl = http://localhost:3334
+@accessToken = {{login.response.body.accessToken}}
 
-# @name create_ccount
+# @name create_account
 POST {{baseUrl}}/accounts
 Content-Type: application/json
 
@@ -12,7 +13,7 @@ Content-Type: application/json
 
 ###
 
-# @name create_ccount
+# @name login
 POST {{baseUrl}}/sessions
 Content-Type: application/json
 
@@ -20,3 +21,21 @@ Content-Type: application/json
     "email": "matheus@gmail.com",
     "password": "12345"
 }
+
+###
+
+# @name create_questions
+POST {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "title": "Nova pergunta 2",
+    "content": "Conteudo da pergunta 2"
+}
+###
+
+# @name list_recent_questions
+GET {{baseUrl}}/questions?page=1
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
