@@ -44,7 +44,6 @@ export class EditAnswerUseCase {
       return left(new NotAllowedError())
     }
 
-    console.log(answerId)
     const currentAnswerAttachments =
       await this.answerAttachmentsRepository.findManyByAnswerId(answerId)
 
