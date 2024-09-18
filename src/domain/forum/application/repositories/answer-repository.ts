@@ -4,7 +4,7 @@ import { Answer } from '../../enterprise/entities/answer'
 export interface AnswerRepository {
   findById(id: string): Promise<Answer | null>
   findManyByQuestionId(
-    questionId: string,
+    answerId: string,
     params: PaginationParams,
   ): Promise<Answer[]>
   create(answer: Answer): Promise<void>

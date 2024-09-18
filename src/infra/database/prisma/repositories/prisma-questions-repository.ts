@@ -7,7 +7,7 @@ import { PrismaQuestionMapper } from '../mappers/prisma-question-mapper'
 
 @Injectable()
 export class PrismaQuestionRepository implements QuestionRepository {
-  constructor(private prismaService: PrismaService) { }
+  constructor(private prismaService: PrismaService) {}
 
   async findById(id: string): Promise<Question | null> {
     const question = await this.prismaService.question.findUnique({
